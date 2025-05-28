@@ -1,9 +1,9 @@
 package com.apx.templatev1.domain.di
 
-import com.apx.templatev1.domain.repository.SRecordRepository
-import com.apx.templatev1.domain.usecase.SClearAllRecordsUseCase
-import com.apx.templatev1.domain.usecase.SGetAllRecordsUseCase
-import com.apx.templatev1.domain.usecase.SInsertRecordUseCase
+import com.apx.templatev1.domain.repository.RecordRepository
+import com.apx.templatev1.domain.usecase.ClearAllRecordsUseCase
+import com.apx.templatev1.domain.usecase.GetAllRecordsUseCase
+import com.apx.templatev1.domain.usecase.InsertRecordUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,14 +15,14 @@ object UseCaseModule {
 
     @Provides
     fun provideInsertRecordUseCase(
-        recordRepository: SRecordRepository
-    ) = SInsertRecordUseCase(recordRepository)
+        recordRepository: RecordRepository
+    ) = InsertRecordUseCase(recordRepository)
 
     fun provideGetAllRecordsUseCase(
-        recordRepository: SRecordRepository
-    ) = SGetAllRecordsUseCase(recordRepository)
+        recordRepository: RecordRepository
+    ) = GetAllRecordsUseCase(recordRepository)
 
     fun provideClearAllRecordsUseCase(
-        recordRepository: SRecordRepository
-    ) = SClearAllRecordsUseCase(recordRepository)
+        recordRepository: RecordRepository
+    ) = ClearAllRecordsUseCase(recordRepository)
 }

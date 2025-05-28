@@ -113,10 +113,18 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
     implementation("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.3")
 
+    /* ROOM*/
+    implementation("androidx.room:room-runtime:2.6.1")
+    kapt("androidx.room:room-compiler:2.6.1")
+    // Kotlin coroutines support
+    implementation("androidx.room:room-ktx:2.6.1")
+    // Optional - for Gson @TypeConverter
+    implementation("com.google.code.gson:gson:2.10.1")
+
     /* Joda Time*/
     implementation("net.danlew:android.joda:2.12.5")
 
-    /* AdMob(구글광고 추가 후에  주석풀어주세요)*/
+    /* AdMob*/
     implementation("com.google.android.gms:play-services-ads:23.1.0")
 
     /* Preference*/

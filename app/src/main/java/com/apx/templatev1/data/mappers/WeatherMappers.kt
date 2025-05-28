@@ -9,7 +9,12 @@ import com.apx.templatev1.domain.dto.ForecastListInfo
 import com.apx.templatev1.domain.dto.ForecastWeatherInfo
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
+import kotlin.collections.first
+import kotlin.collections.last
+import kotlin.collections.map
 import kotlin.math.roundToInt
+import kotlin.text.split
+import kotlin.to
 
 
 const val weatherIconBaseURL = "https://openweathermap.org/img/wn"

@@ -20,8 +20,8 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideWeatherApi(
-        @MongooseHttpClient okHttpClient: OkHttpClient,
+    fun provideApxApi(
+        @ApxHttpClient okHttpClient: OkHttpClient,
     ): WeatherApi {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
@@ -40,8 +40,8 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    @MongooseHttpClient
-    fun providePlanetHttpClient(
+    @ApxHttpClient
+    fun provideApxHttpClient(
         loggingInterceptor: HttpLoggingInterceptor,
     ): OkHttpClient {
         return OkHttpClient.Builder().apply {

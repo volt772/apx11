@@ -5,7 +5,7 @@ import javax.inject.Qualifier
 /* HttpClients*/
 @Qualifier
 @Retention(AnnotationRetention.BINARY)
-annotation class MongooseHttpClient
+annotation class ApxHttpClient
 
 
 /**

@@ -25,10 +25,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.apx.templatev1.R
 import com.apx.templatev1.domain.dto.OpenSourceDto
-import com.apx.templatev1.domain.weather.CommonState
 import com.apx.templatev1.presentation.ext.BackButtonScaffoldScreen
 import com.apx.templatev1.presentation.ext.SetStatusBarColor
 import com.apx.templatev1.presentation.ui.theme.ApxTheme
@@ -36,7 +34,6 @@ import com.apx.templatev1.presentation.ui.theme.MgBackgroundGray
 import com.apx.templatev1.presentation.ui.theme.MgDarkBlue
 import com.apx.templatev1.presentation.ui.theme.MgLicenseFontGray
 import com.apx.templatev1.presentation.ui.theme.MgWhite
-import com.apx.templatev1.presentation.opensource.OpenSourceViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -81,13 +78,13 @@ class OpenSourceActivity: ComponentActivity() {
      */
     @Composable
     fun LicenseDisplay() {
-        when (val state = vm.openSource.collectAsStateWithLifecycle().value) {
-            is CommonState.Loading -> { }
-            is CommonState.Error -> { }
-            is CommonState.Success -> {
-                LicenseList(state.data)
-            }
-        }
+//        when (val state = vm.openSource.collectAsState().value) {
+//            is CommonState.Loading -> { }
+//            is CommonState.Error -> { }
+//            is CommonState.Success<*> -> {
+//                LicenseList(state.data)
+//            }
+//        }
     }
 
     @Composable

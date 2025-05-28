@@ -1,6 +1,6 @@
-package com.apx.apx101.domain.model
+package com.apx.templatev1.domain.model
 
-data class SRecordModel(
+data class RecordModel(
     val id: Int = 0,
     val totalAmount: Int,
     val peopleCount: Int,

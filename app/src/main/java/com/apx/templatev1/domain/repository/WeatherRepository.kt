@@ -12,10 +12,4 @@ interface WeatherRepository {
         lon: Double,
         appId: String
     ): Flow<Resource<CurrentWeatherInfo>>
-
-    suspend fun getForecastWeatherInfo(
-        lat: Double,
-        lon: Double,
-        appId: String
-    ): Flow<Resource<ForecastWeatherInfo>>
 }
