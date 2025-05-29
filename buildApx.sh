@@ -16,9 +16,9 @@ echo '
 |______/ \____|_|_|\____|\____)_|
 -----------------------------------------
 '
-read -p "Enter Mongoose TAG: " BTAG
-BASE_DIR="/Users/allen/work/sources/mongoose"
-RELEASE_BUILD_DIR="$BASE_DIR/release_mongoose_$BTAG""_bundle"
+read -p "Enter {APPNAME} TAG: " BTAG
+BASE_DIR="/Users/allen/work/sources/apx_projects/Android-{APPNAME}"
+RELEASE_BUILD_DIR="$BASE_DIR/release_{APPNAME}_$BTAG""_bundle"
 
 #: 기존 빌드 디렉토리 유무 검사
 if [ -d "$RELEASE_BUILD_DIR" ]; then
@@ -52,7 +52,7 @@ echo "${RED}빌드시작 \n${NC}"
 echo "----------------------------------------------------------------------------------"
 
 #: KeyStore 디렉토리 검사
-KEY_STORE_DIR="./mongoose_keystore";
+KEY_STORE_DIR="./apx_keystore";
 
 if [ ! -d "$KEY_STORE_DIR" ]; then
 	echo "\n----------------------------------------------------------------------------------\n"
@@ -70,36 +70,36 @@ if [ ! -f "$BUNDLETOOL_FILE" ]; then
 fi
 
 #: 시작
-#read -p "Enter Mongoose Git TAG: " BTAG
+#read -p "Enter Git TAG: " BTAG
 
-BUILD_DIR="./tmp-mongoose-bundle-$BTAG"
+BUILD_DIR="./tmp-{APPNAME}-bundle-$BTAG"
 
 #: 디렉토리 복사
 mkdir -p $BUILD_DIR
 cp -rf ./* $BUILD_DIR
 cd $BUILD_DIR
 
-#: BUILD MONGOOSE
+#: BUILD 
 read -p "Enter KeyStore Password : " KSPW
 read -p "Enter Key Password : " KPW
 
-export "MONGOOSE_KEYSTORE_PW="$KSPW
-export "MONGOOSE_KEY_PW="$KPW
+export "{APPNAME}_KEYSTORE_PW="$KSPW
+export "{APPNAME}_KEY_PW="$KPW
 
 ./gradlew clean :app:bundleRelease
 
 #: Copy APK, Mapping File
-OUTPUT_DIR="../release_mongoose_$BTAG""_bundle"
+OUTPUT_DIR="../release_{APPNAME}_$BTAG""_bundle"
 
 mkdir -p $OUTPUT_DIR
 cp -rf ./app/build/outputs/bundle/release/* $OUTPUT_DIR
 cp -rf ./app/build/outputs/mapping/release/* $OUTPUT_DIR
 
 #: Universal APKs 생성
-java -jar "$BUNDLETOOL_FILE" build-apks --bundle=./app/build/outputs/bundle/release/app-release.aab --output=$OUTPUT_DIR/mongoose-release-"$BTAG"-universal.apks --ks=../mongoose_keystore/mongoose_keystore.jks --ks-pass=pass:$KSPW --ks-key-alias=mongoose_alias --key-pass=pass:$KPW --mode=universal
+java -jar "$BUNDLETOOL_FILE" build-apks --bundle=./app/build/outputs/bundle/release/app-release.aab --output=$OUTPUT_DIR/{APPNAME}-release-"$BTAG"-universal.apks --ks=../apx_keystore/{APPNAME}_keystore.jks --ks-pass=pass:$KSPW --ks-key-alias={APPNAME}_alias --key-pass=pass:$KPW --mode=universal
 
 #: Move to Output Directory
-mv $OUTPUT_DIR/app-release.aab $OUTPUT_DIR/mongoose-release-"$BTAG".aab
+mv $OUTPUT_DIR/app-release.aab $OUTPUT_DIR/{APPNAME}-release-"$BTAG".aab
 
 #: Delete Temporary build DIR
 cd ..
@@ -115,5 +115,5 @@ echo "-------------------------------------------"
 
 #: Signing Process (hnjeong Custom)
 signingVersion=`echo $OUTPUT_DIR | grep -Eo '[+-]?[0-9]+([.][0-9]+)+([.][0-9][a-z]+)?'`
-cd "/Users/allen/work/sources/mongoose/release_mongoose_$signingVersion""_bundle"
-jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA-256 -keystore ../mongoose_keystore/mongoose_keystore.jks ./mongoose-release-$signingVersion.aab mongoose_alias
+cd "/Users/allen/work/sources/apx_projects/Android-{APPNAME}/release_{APPNAME}_$signingVersion""_bundle"
+jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA-256 -keystore ../apx_keystore/{APPNAME}_keystore.jks ./{APPNAME}-release-$signingVersion.aab {APPNAME}_alias
