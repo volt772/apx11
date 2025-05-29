@@ -30,10 +30,10 @@ import com.apx.templatev1.domain.dto.OpenSourceDto
 import com.apx.templatev1.presentation.ext.BackButtonScaffoldScreen
 import com.apx.templatev1.presentation.ext.SetStatusBarColor
 import com.apx.templatev1.presentation.ui.theme.ApxTheme
-import com.apx.templatev1.presentation.ui.theme.MgBackgroundGray
-import com.apx.templatev1.presentation.ui.theme.MgDarkBlue
-import com.apx.templatev1.presentation.ui.theme.MgLicenseFontGray
-import com.apx.templatev1.presentation.ui.theme.MgWhite
+import com.apx.templatev1.presentation.ui.theme.AxBlue100
+import com.apx.templatev1.presentation.ui.theme.AxGray200
+import com.apx.templatev1.presentation.ui.theme.AxGray700
+import com.apx.templatev1.presentation.ui.theme.AxWhite
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -100,7 +100,7 @@ class OpenSourceActivity: ComponentActivity() {
                 Column(
                     modifier = Modifier.Companion
                         .fillMaxWidth()
-                        .background(MgWhite)
+                        .background(AxWhite)
                         .padding(16.dp),
 
                     horizontalAlignment = Alignment.Companion.CenterHorizontally,
@@ -112,7 +112,7 @@ class OpenSourceActivity: ComponentActivity() {
                     Text(
                         text = license.name,
                         fontSize = 16.sp,
-                        color = MgLicenseFontGray,
+                        color = AxGray200,
                         fontWeight = FontWeight.Companion.Bold
                     )
                     Spacer(modifier = Modifier.Companion.height(5.dp))
@@ -124,7 +124,7 @@ class OpenSourceActivity: ComponentActivity() {
                         modifier = Modifier.Companion
                             .width(30.dp)
                             .height(4.dp)
-                            .background(MgDarkBlue)
+                            .background(AxBlue100)
                     )
                     Spacer(modifier = Modifier.Companion.height(15.dp))
 
@@ -135,7 +135,7 @@ class OpenSourceActivity: ComponentActivity() {
                         modifier = Modifier.Companion.align(Alignment.Companion.Start),
                         text = license.description,
                         fontSize = 14.sp,
-                        color = MgLicenseFontGray,
+                        color = AxGray200,
                     )
                 }
 
@@ -145,7 +145,7 @@ class OpenSourceActivity: ComponentActivity() {
                 HorizontalDivider(
                     modifier = Modifier.Companion
                         .height(1.dp)
-                        .background(MgBackgroundGray)
+                        .background(AxGray700)
                 )
             }
         }

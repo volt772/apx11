@@ -36,10 +36,10 @@ import com.apx.templatev1.presentation.ext.SetStatusBarColor
 import com.apx.templatev1.presentation.ext.openActivity
 import com.apx.templatev1.presentation.opensource.OpenSourceActivity
 import com.apx.templatev1.presentation.ui.theme.ApxTheme
-import com.apx.templatev1.presentation.ui.theme.MgBackgroundGray
-import com.apx.templatev1.presentation.ui.theme.MgMenuFontBlack
-import com.apx.templatev1.presentation.ui.theme.MgSubDarkBlue
-import com.apx.templatev1.presentation.ui.theme.MgWhite
+import com.apx.templatev1.presentation.ui.theme.AxBlack
+import com.apx.templatev1.presentation.ui.theme.AxDeepOrange200
+import com.apx.templatev1.presentation.ui.theme.AxGray700
+import com.apx.templatev1.presentation.ui.theme.AxWhite
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -97,7 +97,7 @@ class InfoActivity: ComponentActivity() {
         Column(
             modifier = Modifier.Companion
                 .fillMaxSize()
-                .background(MgBackgroundGray)
+                .background(AxGray700)
                 .padding(20.dp, 100.dp, 20.dp),
             verticalArrangement = Arrangement.SpaceBetween,
             horizontalAlignment = Alignment.Companion.CenterHorizontally
@@ -112,12 +112,12 @@ class InfoActivity: ComponentActivity() {
                  * @view 앱아이콘
                  */
                 Image(
-                    painterResource(id = R.drawable.ic_logo_app_png_title),
+                    painterResource(id = R.drawable.ic_app_logo),
                     contentDescription = null,
                     modifier = Modifier.Companion
                         .size(200.dp)
                         .clip(CircleShape)
-                        .border(3.dp, MgSubDarkBlue, CircleShape)
+                        .border(3.dp, AxDeepOrange200, CircleShape)
                 )
 
                 Spacer(modifier = Modifier.Companion.height(50.dp))
@@ -170,7 +170,7 @@ class InfoActivity: ComponentActivity() {
                     Row(
                         modifier = Modifier.Companion
                             .clip(RoundedCornerShape(topStart = 8.dp, bottomStart = 8.dp, bottomEnd = 8.dp, topEnd = 8.dp))
-                            .background(MgWhite)
+                            .background(AxWhite)
                             .fillMaxWidth()
                             .height(56.dp),
                         horizontalArrangement = Arrangement.SpaceBetween,
@@ -183,7 +183,7 @@ class InfoActivity: ComponentActivity() {
                             modifier = Modifier.Companion.padding(start = 18.dp),
                             text = stringResource(id = R.string.app_version),
                             fontSize = 16.sp,
-                            color = MgMenuFontBlack
+                            color = AxBlack
                         )
 
                         /**
@@ -196,7 +196,7 @@ class InfoActivity: ComponentActivity() {
                                 BuildConfig.VERSION_NAME
                             ),
                             fontSize = 16.sp,
-                            color = MgMenuFontBlack
+                            color = AxBlack
                         )
                     }
                 }
@@ -215,7 +215,7 @@ class InfoActivity: ComponentActivity() {
                         modifier = Modifier.Companion.padding(horizontal = 18.dp),
                         text = stringResource(id = R.string.on_debugging),
                         fontSize = 16.sp,
-                        color = MgMenuFontBlack
+                        color = AxBlack
                     )
                 }
             }

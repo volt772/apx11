@@ -4,13 +4,7 @@ import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.compose.ui.graphics.Color
 import com.apx.templatev1.R
-import com.apx.templatev1.presentation.ui.theme.MgAtmosphere
-import com.apx.templatev1.presentation.ui.theme.MgClear
-import com.apx.templatev1.presentation.ui.theme.MgClouds
-import com.apx.templatev1.presentation.ui.theme.MgDrizzle
-import com.apx.templatev1.presentation.ui.theme.MgRain
-import com.apx.templatev1.presentation.ui.theme.MgSnow
-import com.apx.templatev1.presentation.ui.theme.MgThunderStorm
+import com.apx.templatev1.presentation.ui.theme.AxBlue100
 
 sealed class WeatherType(
     val code: Int,
@@ -24,7 +18,7 @@ sealed class WeatherType(
         code = 2,
         mainRes = R.drawable.ic_thunder,
         subRes = R.drawable.ic_weather_thunderstorm,
-        color = MgThunderStorm
+        color = AxBlue100
     )
 
     /* 300 Drizzle*/
@@ -32,7 +26,7 @@ sealed class WeatherType(
         code = 3,
         mainRes = R.drawable.ic_drizzle,
         subRes = R.drawable.ic_weather_drizzle,
-        color = MgDrizzle
+        color = AxBlue100
     )
 
     /* 500 Rain*/
@@ -40,7 +34,7 @@ sealed class WeatherType(
         code = 5,
         mainRes = R.drawable.ic_rainy,
         subRes = R.drawable.ic_weather_rain,
-        color = MgRain
+        color = AxBlue100
     )
 
     /* 600 Snow*/
@@ -48,7 +42,7 @@ sealed class WeatherType(
         code = 6,
         mainRes = R.drawable.ic_snowy,
         subRes = R.drawable.ic_weather_snow,
-        color = MgSnow
+        color = AxBlue100
     )
 
     /* 700 Atmosphere*/
@@ -56,7 +50,7 @@ sealed class WeatherType(
         code = 7,
         mainRes = R.drawable.ic_cloudy,
         subRes = R.drawable.ic_weather_default,
-        color = MgAtmosphere
+        color = AxBlue100
     )
 
     /* 800 Clear*/
@@ -64,7 +58,7 @@ sealed class WeatherType(
         code = 8,
         mainRes = R.drawable.ic_sunny,
         subRes = R.drawable.ic_weather_clear,
-        color = MgClear
+        color = AxBlue100
     )
 
     /* 800 Clouds*/
@@ -72,7 +66,7 @@ sealed class WeatherType(
         code = 80,
         mainRes = R.drawable.ic_cloudy,
         subRes = R.drawable.ic_weather_clouds,
-        color = MgClouds
+        color = AxBlue100
     )
 
     companion object {
