@@ -1,35 +1,59 @@
-# Add project specific ProGuard rules here.
-# You can control the set of applied configuration files using the
-# proguardFiles setting in build.gradle.
-#
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
+# -----------------------------
+# 디버그 정보 및 Annotation 보존
+# -----------------------------
+-keepattributes SourceFile, LineNumberTable, *Annotation*, Signature, EnclosingMethod, InnerClasses, KotlinMetadata
+-renamesourcefileattribute SourceFile
 
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
+# -----------------------------
+# Retrofit + OkHttp + Coroutines Generic 보존 (isn't parameterized 방지)
+# -----------------------------
+-keep class retrofit2.** { *; }
+-keep interface retrofit2.** { *; }
+-keep interface retrofit2.Call
+-keep class retrofit2.Response
+-keepclassmembers class retrofit2.** {
+    *;
+}
+
+-keep class okhttp3.** { *; }
+-keep interface okhttp3.** { *; }
+-keepclassmembers class okhttp3.** {
+    *;
+}
+
+-keep class kotlin.coroutines.Continuation
+
+# kotlinx.coroutines.flow.Flow 보존
+-keep class kotlinx.coroutines.flow.Flow
+
+# -----------------------------
+# Room 관련 보존
+# -----------------------------
+-keep class androidx.room.** { *; }
+-keepclassmembers class * {
+    @androidx.room.Entity <fields>;
+    @androidx.room.PrimaryKey <fields>;
+    @androidx.room.Dao <methods>;
+    @androidx.room.ColumnInfo <fields>;
+}
+
+# -----------------------------
+# 프로젝트 패키지 보존
+# -----------------------------
+-keep class com.apx.templatev1.domain.** { *; }
+-keep class com.apx.templatev1.data.remote.** { *; }
+-keep class com.apx.templatev1.data.local.** { *; }
+
+# -----------------------------
+# GraalVM 관련 경고 무시 (OkHttp 5.x)
+# -----------------------------
+-dontwarn com.oracle.svm.core.annotate.**
+-dontwarn org.graalvm.nativeimage.**
+-dontwarn okhttp3.internal.graal.**
+
+# -----------------------------
+# WebView JS Interface 필요 시 활성화
+# -----------------------------
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
-
-# Uncomment this to preserve the line number information for
-# debugging stack traces.
-#-keepattributes SourceFile,LineNumberTable
-
-# If you keep the line number information, uncomment this to
-# hide the original source file name.
-#-renamesourcefileattribute SourceFile
-
-
--keep,allowobfuscation,allowshrinking class kotlinx.coroutines.flow.Flow
-
--keep class com.apx.templatev1.domain.** { *; }
--keep class com.apx.templatev1.data.remote.** { *; }
-
-# Keep generic signature of Call, Response (R8 full mode strips signatures from non-kept items).
-#-keep interface retrofit2.Call
-#-keep class retrofit2.Response
-# With R8 full mode generic signatures are stripped for classes that are not
-# kept. Suspend functions are wrapped in continuations where the type argument
-# is used.
--keep class kotlin.coroutines.Continuation

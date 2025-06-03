@@ -95,6 +95,11 @@ mkdir -p $OUTPUT_DIR
 cp -rf ./app/build/outputs/bundle/release/* $OUTPUT_DIR
 cp -rf ./app/build/outputs/mapping/release/* $OUTPUT_DIR
 
+# missing_rules.txt 복사 (존재할 경우만)
+if [ -f "./app/build/outputs/mapping/release/missing_rules.txt" ]; then
+  cp ./app/build/outputs/mapping/release/missing_rules.txt $OUTPUT_DIR
+fi
+
 #: Universal APKs 생성
 java -jar "$BUNDLETOOL_FILE" build-apks --bundle=./app/build/outputs/bundle/release/app-release.aab --output=$OUTPUT_DIR/{APPNAME}-release-"$BTAG"-universal.apks --ks=../apx_keystore/{APPNAME}_keystore.jks --ks-pass=pass:$KSPW --ks-key-alias={APPNAME}_alias --key-pass=pass:$KPW --mode=universal
 
