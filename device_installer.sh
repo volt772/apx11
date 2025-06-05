@@ -33,7 +33,7 @@ makeInstallToDevice() {
 }
 
 read -p "설치대상 TAG 입력: " BTAG
-BASE_DIR="/Users/allen/work/sources/apx_projects/Android-{APPNAME}"
+BASE_DIR="/Users/allen/work/sources/apx/apx_projects/Android-{APPNAME}"
 RELEASE_BUILD_DIR="$BASE_DIR/release_{APPNAME}_$BTAG""_bundle"
 
 #: 빌드 디렉토리 검사

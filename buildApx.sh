@@ -17,7 +17,7 @@ echo '
 -----------------------------------------
 '
 read -p "Enter {APPNAME} TAG: " BTAG
-BASE_DIR="/Users/allen/work/sources/apx_projects/Android-{APPNAME}"
+BASE_DIR="/Users/allen/work/sources/apx/apx_projects/Android-{APPNAME}"
 RELEASE_BUILD_DIR="$BASE_DIR/release_{APPNAME}_$BTAG""_bundle"
 
 #: 기존 빌드 디렉토리 유무 검사
@@ -120,5 +120,5 @@ echo "-------------------------------------------"
 
 #: Signing Process (hnjeong Custom)
 signingVersion=`echo $OUTPUT_DIR | grep -Eo '[+-]?[0-9]+([.][0-9]+)+([.][0-9][a-z]+)?'`
-cd "/Users/allen/work/sources/apx_projects/Android-{APPNAME}/release_{APPNAME}_$signingVersion""_bundle"
+cd "/Users/allen/work/sources/apx/apx_projects/Android-{APPNAME}/release_{APPNAME}_$signingVersion""_bundle"
 jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA-256 -keystore ../apx_keystore/{APPNAME}_keystore.jks ./{APPNAME}-release-$signingVersion.aab {APPNAME}_alias
