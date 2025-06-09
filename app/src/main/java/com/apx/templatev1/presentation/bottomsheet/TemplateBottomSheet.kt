@@ -54,7 +54,6 @@ fun StadiumBottomSheet(
                 if (entry != Stadium.NAN) {
                     list.add(
                         StadiumViewDto(
-                            color = entry.teamColor,
                             name = entry.signBoard,
                             code = entry.code
                         )

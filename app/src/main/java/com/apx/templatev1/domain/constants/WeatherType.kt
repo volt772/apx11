@@ -16,8 +16,8 @@ sealed class WeatherType(
     /* 200 ThunderStorm*/
     data object Thunderstorm: WeatherType(
         code = 2,
-        mainRes = R.drawable.ic_thunder,
-        subRes = R.drawable.ic_weather_thunderstorm,
+        mainRes = R.drawable.ic_drizzle,
+        subRes = R.drawable.ic_drizzle,
         color = AxBlue100
     )
 
@@ -25,23 +25,23 @@ sealed class WeatherType(
     data object Drizzle : WeatherType(
         code = 3,
         mainRes = R.drawable.ic_drizzle,
-        subRes = R.drawable.ic_weather_drizzle,
+        subRes = R.drawable.ic_drizzle,
         color = AxBlue100
     )
 
     /* 500 Rain*/
     data object Rain : WeatherType(
         code = 5,
-        mainRes = R.drawable.ic_rainy,
-        subRes = R.drawable.ic_weather_rain,
+        mainRes = R.drawable.ic_drizzle,
+        subRes = R.drawable.ic_drizzle,
         color = AxBlue100
     )
 
     /* 600 Snow*/
     data object Snow: WeatherType(
         code = 6,
-        mainRes = R.drawable.ic_snowy,
-        subRes = R.drawable.ic_weather_snow,
+        mainRes = R.drawable.ic_drizzle,
+        subRes = R.drawable.ic_drizzle,
         color = AxBlue100
     )
 
@@ -49,15 +49,15 @@ sealed class WeatherType(
     data object Atmosphere: WeatherType(
         code = 7,
         mainRes = R.drawable.ic_cloudy,
-        subRes = R.drawable.ic_weather_default,
+        subRes = R.drawable.ic_drizzle,
         color = AxBlue100
     )
 
     /* 800 Clear*/
     data object Clear: WeatherType(
         code = 8,
-        mainRes = R.drawable.ic_sunny,
-        subRes = R.drawable.ic_weather_clear,
+        mainRes = R.drawable.ic_drizzle,
+        subRes = R.drawable.ic_drizzle,
         color = AxBlue100
     )
 
@@ -65,7 +65,7 @@ sealed class WeatherType(
     data object Clouds : WeatherType(
         code = 80,
         mainRes = R.drawable.ic_cloudy,
-        subRes = R.drawable.ic_weather_clouds,
+        subRes = R.drawable.ic_drizzle,
         color = AxBlue100
     )
 

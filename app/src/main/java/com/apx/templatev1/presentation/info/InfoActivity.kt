@@ -112,7 +112,7 @@ class InfoActivity: ComponentActivity() {
                  * @view 앱아이콘
                  */
                 Image(
-                    painterResource(id = R.drawable.ic_app_logo),
+                    painterResource(id = R.drawable.ic_splash_logo),
                     contentDescription = null,
                     modifier = Modifier.Companion
                         .size(200.dp)
