@@ -1,5 +1,6 @@
 package com.apx.templatev1.di
 
+import com.apx.templatev1.data.repository.RecordRepositoryImpl
 import com.apx.templatev1.data.repository.WeatherRepositoryImpl
 import com.apx.templatev1.domain.repository.RecordRepository
 import com.apx.templatev1.domain.repository.WeatherRepository
@@ -18,5 +19,5 @@ abstract class RepositoryModule {
 
     @Binds
     @Singleton
-    abstract fun bindRecordRepository(recordRepository: RecordRepository): RecordRepository
+    abstract fun bindRecordRepository(recordRepository: RecordRepositoryImpl): RecordRepository
 }
