@@ -15,11 +15,11 @@ fun getPropKey(propertyKey: String): String {
 }
 
 android {
-    namespace = "com.apx.templatev1"
+    namespace = "com.apx.simple"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.apx.templatev1"
+        applicationId = "com.apx.simple"
         minSdk = 31
         targetSdk = 34
         versionCode = 10000
@@ -39,9 +39,9 @@ android {
     signingConfigs {
         // Signing Block
         create("release") {
-            storeFile = file("../../apx_keystore/templatev1_keystore.jks")
+            storeFile = file("../../apx_keystore/simple_keystore.jks")
             storePassword = System.getenv("APX_NEW_KEYSTORE_PW")
-            keyAlias = "templatev1_alias"
+            keyAlias = "simple_alias"
             keyPassword = System.getenv("APX_NEW_KEY_PW")
         }
     }

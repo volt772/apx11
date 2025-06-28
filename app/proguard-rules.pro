@@ -40,9 +40,9 @@
 # -----------------------------
 # 프로젝트 패키지 보존
 # -----------------------------
--keep class com.apx.templatev1.domain.** { *; }
--keep class com.apx.templatev1.data.remote.** { *; }
--keep class com.apx.templatev1.data.local.** { *; }
+-keep class com.apx.simple.domain.** { *; }
+-keep class com.apx.simple.data.remote.** { *; }
+-keep class com.apx.simple.data.local.** { *; }
 
 # -----------------------------
 # GraalVM 관련 경고 무시 (OkHttp 5.x)
