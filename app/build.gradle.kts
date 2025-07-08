@@ -16,12 +16,12 @@ fun getPropKey(propertyKey: String): String {
 
 android {
     namespace = "com.apx.simple"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.apx.simple"
         minSdk = 31
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 10000
         versionName = "1.0.0"
 
