@@ -8,9 +8,9 @@
     <!-- Starting-->
     <style name="Theme.App.Starting" parent="Theme.Apx">
         <item name="android:windowSplashScreenBackground">@color/white</item>
-        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_splash_logo</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/splash_logo</item>
         <item name="android:windowSplashScreenAnimationDuration">2000</item>
-        <item name="android:windowSplashScreenBrandingImage">@drawable/ic_splash_project</item>
+        <item name="android:windowSplashScreenBrandingImage">@drawable/splash_project</item>
         <item name="postSplashScreenTheme">@style/Theme.Apx</item>
     </style>
 </resources>
