@@ -7,6 +7,7 @@ plugins {
     id("com.google.dagger.hilt.android")
     id("com.google.gms.google-services")
     id("com.google.firebase.crashlytics")
+    id("kotlin-parcelize")
 }
 
 fun getPropKey(propertyKey: String): String {
@@ -95,6 +96,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
     implementation("com.google.accompanist:accompanist-systemuicontroller:0.27.0")
     implementation("androidx.core:core-splashscreen:1.0.1")
+    implementation("com.google.accompanist:accompanist-navigation-animation:0.34.0")
 
     /* Test*/
     testImplementation("junit:junit:4.13.2")

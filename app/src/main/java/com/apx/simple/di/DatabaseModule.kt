@@ -5,7 +5,7 @@ import androidx.room.Room
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.apx.simple.data.local.LocalDatabase
-import com.apx.simple.data.local.dao.RecordDao
+import com.apx.simple.data.local.dao.SampleDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,15 +25,15 @@ object DatabaseModule {
         Room.databaseBuilder(
             appContext,
             LocalDatabase::class.java,
-            "record.db"
+            "sample.db"
         )
         .addMigrations(MIGRATION_1_TO_2)
         .build()
 
     @Provides
     @Singleton
-    fun provideRecordDao(database: LocalDatabase): RecordDao =
-        database.recordDao()
+    fun provideRecordDao(database: LocalDatabase): SampleDao =
+        database.sampleDao()
 }
 
 val MIGRATION_1_TO_2 = object : Migration(1, 2) {

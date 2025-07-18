@@ -1,9 +1,7 @@
 package com.apx.simple.di
 
-import com.apx.simple.data.repository.RecordRepositoryImpl
-import com.apx.simple.data.repository.WeatherRepositoryImpl
-import com.apx.simple.domain.repository.RecordRepository
-import com.apx.simple.domain.repository.WeatherRepository
+import com.apx.simple.data.repository.SampleRepositoryImpl
+import com.apx.simple.domain.repository.SampleRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -15,9 +13,5 @@ import javax.inject.Singleton
 abstract class RepositoryModule {
     @Binds
     @Singleton
-    abstract fun bindWeatherRepository(weatherRepositoryImpl: WeatherRepositoryImpl): WeatherRepository
-
-    @Binds
-    @Singleton
-    abstract fun bindRecordRepository(recordRepository: RecordRepositoryImpl): RecordRepository
+    abstract fun bindSampleRepository(sampleRepository: SampleRepositoryImpl): SampleRepository
 }

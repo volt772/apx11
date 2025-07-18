@@ -1,6 +1,6 @@
 package com.apx.simple.di
 
-import com.apx.simple.data.remote.WeatherApi
+import com.apx.simple.data.remote.SampleApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,7 +22,7 @@ object NetworkModule {
     @Singleton
     fun provideApxApi(
         @ApxHttpClient okHttpClient: OkHttpClient,
-    ): WeatherApi {
+    ): SampleApi {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .addConverterFactory(MoshiConverterFactory.create())
